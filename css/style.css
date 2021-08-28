@@ -7,10 +7,17 @@
     font-family: 'Nunito', sans-serif;
 }
 
+body{
+    background-image: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1262&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 /* ----- root variables ----- */
 :root{
     --chef-green: #2bb673;
     --text-black: #242424;
+    --filter-white: rgba(255,255,255,0.95)
 }
 
 /* ----- <header> styling ----- */
@@ -42,10 +49,44 @@
     width: 50px;
 }
 
+/* ----- custom input styling ----- */
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+input[type='text']{
+    border: none;
+    width: 50%;
+    padding-left: 10px;
+    background-color: rgba(0,0,0,0);
+}
+
+form{
+    width: 80%;
+    border: 1px solid var(--chef-green);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+}
+
 /* ----- <main> styling ----- */
 main{
     /* border: 1px solid red; */
     color: var(--text-black);
+    background-color: var(--filter-white);
+}
+
+/* ----- intro styling ----- */
+#intro{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding-top: 20%;
 }
 
 .container{
@@ -72,6 +113,7 @@ main{
     padding: 15px;
     margin-bottom: 20px;
     align-items: center;
+    background-color: #fff;
 }
 
 .card img{
@@ -101,5 +143,5 @@ footer{
     justify-content: space-between;
     width: 100%;
     padding: 15px;
-    background-color: white;
+    background-color: #f9f9f9;
 }
