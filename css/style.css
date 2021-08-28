@@ -1,3 +1,79 @@
-h1{
-    color: blue;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;0,900;1,400&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* ----- root variables ----- */
+:root{
+    --chef-green: #2bb673;
+    --text-black: #242424;
+}
+
+/* ----- <header> styling ----- */
+#nav-bar, #nav-bar ul{
+    display: flex;
+}
+
+#nav-bar{
+    justify-content: space-between;
+    padding: 30px;
+}
+
+#nav-bar ul{
+    list-style: none;
+}
+
+/* ----- <main> styling ----- */
+main{
+    border: 1px solid red;
+    color: var(--text-black);
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 15px;
+    border: 1px dotted grey;
+}
+
+.container h1, .container h3 {
+    margin-bottom: 15px;
+    width: 60%;
+}
+#recipe-list {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+.card{
+    border: 1px solid red;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    height: 200px;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+
+.card.line{
+    font-weight: bolder;
+}
+
+/* ----- <footer> styling ----- */
+footer{
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-between;
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
 }
