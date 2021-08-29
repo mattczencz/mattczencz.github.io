@@ -1,14 +1,14 @@
 let recipeData, userInput;
 const $input = $('input[type="text"]')
 const $recipeArea = $('#recipes')
-
+const $instructionArea = $('#instruction-area')
 
 function getRecipe(event) {
     event.preventDefault()
 
     userInput = $input.val();
     $.ajax({
-        url: `https://api.spoonacular.com/recipes/complexSearch?query=${userInput}&instructionsRequired=true&addRecipeInformation=true&apiKey=d0acc05453c4415ab10cd087ae0057ad`,
+        url: `https://api.spoonacular.com/recipes/complexSearch?query=${userInput}&instructionsRequired=true&addRecipeInformation=true&addRecipeNutrition=true&apiKey=d0acc05453c4415ab10cd087ae0057ad`,
     }).then(
         (recipe) => {
             recipeData = recipe.results
@@ -28,8 +28,27 @@ function render() {
     $recipeArea.html('')
     for (item of recipeData) {
         console.log(item)
-        let newItem =
-            $(`<div class="card"><img src="${item.image}"><div class="ct-area"><h3 class="card-title">${item.title}</h3><p class="card-stat">${item.readyInMinutes} min <span class="line">|</span> <i class="fas fa-utensils"></i>${item.servings}</p></div></div>`)
-        $recipeArea.append(newItem)
+        let instructions = item.analyzedInstructions[0].steps;
+        let $newItem =
+            $(`<div class="card">
+                <div id="card-header">
+                    <img src="${item.image}">
+                    <div class="ct-area">
+                        <h3 class="card-title">${item.title}</h3>
+                        <p class="card-stat">${item.readyInMinutes} min <span class="line">|</span> <i class="fas fa-utensils"></i>${item.servings}</p>
+                        <div id="tag-area">
+                            <div class="tag" id="cal">Cal: ${Math.round(item.nutrition.nutrients[0].amount)}</div>
+                            <div class="tag" id="fat">Fat: ${Math.round(item.nutrition.nutrients[1].amount)}</div>
+                            <div class="tag" id="sug">Sug: ${Math.round(item.nutrition.nutrients[5].amount)}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>`)
+        $recipeArea.append($newItem)
+
+
+        // for(step of instructions){
+        //     console.log(step.step)
+        // }
     }
 }
