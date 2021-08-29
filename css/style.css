@@ -125,6 +125,12 @@ main {
   width: 100%;
 }
 
+.ct-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .card img {
   border-radius: 20px;
   margin-right: 15px;
