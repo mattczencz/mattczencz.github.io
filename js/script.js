@@ -26,6 +26,7 @@ $('form').on('submit', getRecipe)
 
 function render() {
     $recipeArea.html('')
+    
     for (item of recipeData) {
         console.log(item)
         let instructions = item.analyzedInstructions[0].steps;
@@ -41,14 +42,36 @@ function render() {
                             <div class="tag" id="fat">Fat: ${Math.round(item.nutrition.nutrients[1].amount)}</div>
                             <div class="tag" id="sug">Sug: ${Math.round(item.nutrition.nutrients[5].amount)}</div>
                         </div>
-                    </div>
+                        <p class="inst-link">View Instructions</p>
+                    </div> 
                 </div>
-            </div>`)
+                <div id="instruction-area">
+                    <h3>Instructions:</h3>
+                </div>
+            </div>`) 
+        
         $recipeArea.append($newItem)
 
-
-        // for(step of instructions){
-        //     console.log(step.step)
-        // }
+        for(step of instructions){
+            let $newStep = $(`<div class="step-area"><p class="step-num">${step.number}</p><p class="step-text">${step.step}</p></div>`)
+            $newItem.find('#instruction-area').append($newStep)
+        }
     }
 }
+
+let isVisible = false;
+$('body').click(function(event){
+    let target = $(event.target)
+    let $instArea
+    if(target.is('.inst-link')){
+        $instArea = target.closest(".card").find("#instruction-area")
+        if(isVisible === false){
+            $instArea.slideDown('slow').css({'display': 'flex'})
+            isVisible = true
+        } else if(isVisible === true){
+            $instArea.slideToggle('slow')
+            isVisible = false
+        }
+        console.log(isVisible)
+    }
+})
