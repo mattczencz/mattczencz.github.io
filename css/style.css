@@ -76,6 +76,7 @@ form {
 main {
   color: var(--text-black);
   background-color: var(--filter-white);
+  min-width: 400px;
 }
 
 #hero {
@@ -108,7 +109,7 @@ main {
   text-align: center;
   width: 100%;
   padding-top: 50px;
-  padding-bottom: 0px;
+  padding-bottom: 20px;
 }
 
 #intro h2 {
@@ -121,14 +122,14 @@ main {
   padding: 30px 30px;
 }
 
-.container h2,
+.container h2 {
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
 .container h3 {
   margin-bottom: 15px;
   width: 60%;
-}
-
-.container h2 {
-  font-weight: 900;
 }
 
 #temporary{
@@ -136,6 +137,10 @@ main {
   text-align: center;
   font-size: 40px;
   color: rgba(0,0,0,.2)
+}
+
+#result-area{
+  padding-bottom: 75px;
 }
 
 .card {
@@ -242,18 +247,60 @@ main {
 
 /* ----- <footer> styling ----- */
 footer {
-  /* border: 1px solid blue; */
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
-  padding: 15px;
-  background-color: #f9f9f9;
+  padding: 50px;
+  background-color: #0D1B2A;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
+.widget{
+  display: inline-flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.widget h2{
+  margin-bottom: 10px;
+  font-size: 40px;
+  color: #fff;
+}
+
+.widget p{
+  color: rgba(255, 255, 255, 0.6)
+}
+
+.copyright{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0 0 0;
+  color: rgba(255, 255, 255, 0.6)
+}
+
+.copyright div{
+  display: flex;
+  align-items: center;
+}
+
+/* ----- responsive styling ----- */
 @media (min-width: 1150px) {
   #recipes .card {
     width: 32%;
     margin-right: 10px;
+  }
+
+  footer{
+    flex-direction: row;
+  }
+
+  .widget{
+    width: 30%;
   }
 }
 
@@ -288,6 +335,7 @@ footer {
 
   #intro {
     padding-top: 75px;
+    padding-bottom: 75px;
     width: 50%;
     margin: auto;
   }
@@ -307,4 +355,5 @@ footer {
   .card .card-title {
     width: 100%;
   }
+
 }
