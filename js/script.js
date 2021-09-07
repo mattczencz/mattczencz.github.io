@@ -32,8 +32,8 @@ function render() {
         let instructions = item.analyzedInstructions[0].steps;
         let $newItem =
             $(`<div class="card">
+                <div id="card-img" style="background-image: url(${item.image})"></div>
                 <div id="card-header">
-                    <img src="${item.image}">
                     <div class="ct-area">
                         <h3 class="card-title">${item.title}</h3>
                         <p class="card-stat">${item.readyInMinutes} min <span class="line">|</span> <i class="fas fa-utensils"></i>${item.servings}</p>
