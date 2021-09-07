@@ -9,7 +9,7 @@ A web application that allows users to find new recipes based on what ingredient
  <li>jQuery</li>
  <li>Google Fonts</li>
  <li>Font Awesome Icons</li>
- <li>Spoontacular API</li>
+ <li>Spoonacular API</li>
 </ul>
 
 ## Screenshots
